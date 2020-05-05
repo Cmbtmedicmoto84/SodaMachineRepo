@@ -13,19 +13,15 @@ namespace SodaMachineProject
         public int canQuantity;
         public Coin coins;
         public double canCost;
-        //private double startingPenny;
-        //private double startingNickel;
-        //private double startingDime;
-        //private double startingQuarter;
+        public List<Coin> register;
+
 
         //constructor
         public SodaMachine()
         {
-            //starting coins in internal/limited register for machine
-            //pennies = 50
-            //nickels = 20
-            //dimes = 10
-            //quarters = 20
+            //call register
+            register = new List<Coin>();
+
 
             //starting inventory and cost
             //colaQuantity = 5
@@ -44,8 +40,13 @@ namespace SodaMachineProject
             coins = coin;
         }
 
+        public void InternalRegister(List<Coin> register)
+        {
+            this.register = register;
+        }
+
         //membermethods
-        public void TakeInMoney()
+        public void TakeInMoney(List<Coin> register) //list as parameter
         {
             //pass coin list
 

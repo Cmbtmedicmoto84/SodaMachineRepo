@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace SodaMachineProject
 {
-    public class Coin  //for inheritance?
+    public abstract class Coin
     {
-        public string coinName;
-        public double value;
+        public string name;
         public int quantity;
         
         
-        public Coin(string coinNames, int machineQuantity)
+        public Coin()
         {
-            coinName = coinNames;
-            quantity = machineQuantity;
+            
         }
 
      

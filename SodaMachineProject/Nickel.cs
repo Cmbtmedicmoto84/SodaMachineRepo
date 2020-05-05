@@ -9,12 +9,13 @@ namespace SodaMachineProject
 {
     public class Nickel : Coin
     {
+        public double value;
 
-        public Nickel(double value)
+
+        public Nickel()
         {
-            this.value = value;
-            value = 0.05;
-            
+            name = "nickel";
+            value = 0.05;  
         }
     }
 }

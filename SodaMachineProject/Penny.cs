@@ -8,9 +8,11 @@ namespace SodaMachineProject
 {
     public class Penny : Coin
     {
-        public Penny(double value)
+        public double value;
+        
+        public Penny()
         {
-            this.value = value;
+            name = "penny";
             value = 0.01;
         }
     }
