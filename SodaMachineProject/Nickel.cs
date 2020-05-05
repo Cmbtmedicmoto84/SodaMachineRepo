@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace SodaMachineProject
 {
-    class Nickel
+    public class Nickel : Coin
     {
-        double nickelValue;
 
-        public Nickel()
+        public Nickel(double value)
         {
-            nickelValue = 0.05;
+            this.value = value;
+            value = 0.05;
+            
         }
     }
 }
