@@ -1,6 +1,8 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,11 +11,12 @@ namespace SodaMachineProject
     class SodaMachine
     {
         //membervariables
-        public string sodaFlavors;
+        public string soda;
         public int canQuantity;
-        public Coin coins;
+        public Coin coin;
         public double canCost;
-        public List<Coin> register;
+        public List<Coin> register;  //internal-limited variable
+        List<string> sodaType;
 
 
         //constructor
@@ -21,23 +24,17 @@ namespace SodaMachineProject
         {
             //call register
             register = new List<Coin>();
-
-
-            //starting inventory and cost
-            //colaQuantity = 5
-            //colaCost = .15
-            //orangeQuantity = 3
-            //orangeCost = .25
-            //rootBeerQuantity = 10
-            //rootbeerCost = .50
-            
-        }
-        public SodaMachine(string sodaFlavor, int canQuantitys, double canCosts, Coin coin)
+            priceForCola = 0.25;
+            priceForRootBeer = 0.35;
+            priceForOrangeSoda = 0.20;
+        }          
+        
+        public SodaMachine(string sodas, int canQuantitys, double canCosts, Coin coins)
         {
-            sodaFlavors = sodaFlavor;
+            soda = sodas;
             canQuantity = canQuantitys;
             canCost = canCosts;
-            coins = coin;
+            coin = coins;
         }
 
         public void InternalRegister(List<Coin> register)
@@ -50,15 +47,39 @@ namespace SodaMachineProject
         {
             //pass coin list
 
-            //if exact change, accept and dispense
+            if (insertedValue == valueOfSoda)  //if exact change, accept and dispense
+            {
+                dispenseSodaToCustomer;
+            }
+            else if (insertedValue < valueOfSoda)  //if not enough $, do not complete & return $
+            {
+                Console.WriteLine("Not enough to purchase.");
+                refundBackInsertedChange;
 
-            //if not enough $, do not complete & return $
+            }
+            else if (insertedValue > valueOfSoda) //if too much $, accept, return from coin internal/limited register, return soda instance from internal/limited inventory
+            {
+                Console.WriteLine("Your change due is " + leftOverValue);
+                dispenseSodaToCustomer;
+                dispenseLeftoverValue;
 
-            //if too much $, accept, return from coin internal/limited register, return soda instance from internal/limited inventory
+            }  
+            else if (insertedValue > availableChangeInRegister)  //if $ exceeds change amount available in internal/limited register, do not complete & return $
+            {
+                Console.WriteLine("Not able to provide adequate change.");
+                refundBackInsertedChange;
+            }
+            else if (insertedValue >= valueOfSoda && selectedSoda > sodaInventory)
+            {
+                Console.WriteLine("Out of stock! Please try your transaction again");
+                refundBackInsertedChange;
+            }
 
-            //if $ exceeds change amount available in internal/limited register, do not complete & return $
 
-            //if exact $ or too much $, but not sufficient soda inventory for chosen soda, do not complete & return $
+
+            
+
+                //if exact $ or too much $, but not sufficient soda inventory for chosen soda, do not complete & return $
         }
 
 
